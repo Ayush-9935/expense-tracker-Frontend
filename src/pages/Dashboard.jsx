@@ -110,36 +110,11 @@ export default function Dashboard() {
       .smart-modal-scroll{ scrollbar-width:none; -ms-overflow-style:none; }
 
       /* ✅ Responsive layout */
-     @media (max-width: 980px){
-  .smart-layout-grid{ grid-template-columns: 1fr !important; }
-  .smart-sidebar-sticky{ position: relative !important; top: auto !important; height:auto !important; }
-  .smart-section-grid{ grid-template-columns: 1fr !important; }
-
-  /* ✅ Navbar mobile fix */
-  header{
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-  }
-
-  header > div:last-child{
-    width: 100% !important;
-    justify-content: space-between !important;
-    flex-wrap: wrap !important;
-  }
-
-  /* ✅ Show hamburger in mobile */
-  button[style*="hamburger"]{
-    display: block !important;
-  }
-
-  /* ✅ View groups modal mobile fit */
-  .smart-modal-scroll{
-    max-height: 65vh !important;
-    overflow-y: auto !important;
-  }
-}
-
+      @media (max-width: 980px){
+        .smart-layout-grid{ grid-template-columns: 1fr !important; }
+        .smart-sidebar-sticky{ position: relative !important; top: auto !important; height:auto !important; }
+        .smart-section-grid{ grid-template-columns: 1fr !important; }
+      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
