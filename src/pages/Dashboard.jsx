@@ -5,7 +5,10 @@ import { AuthContext } from "../context/AuthContext";
 
 /* ======= Small chart (no external library) ======= */
 function BarChart({ data, theme }) {
-  const max = Math.max(...data.map((d) => d.value), 1);
+  const max =
+    data && data.length > 0
+      ? Math.max(...data.map((d) => Number(d.value) || 0))
+      : 1;
 
   return (
     <div style={{ display: "grid", gap: 10 }}>
@@ -35,7 +38,7 @@ function BarChart({ data, theme }) {
             <div
               style={{
                 height: "100%",
-                width: `${(d.value / max) * 100}%`,
+                width: `${max > 0 ? (d.value / max) * 100 : 0}%`,
                 borderRadius: 999,
                 background: "linear-gradient(90deg,#22c55e,#3b82f6)",
               }}
